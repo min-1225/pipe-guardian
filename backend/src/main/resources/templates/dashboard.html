@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PipeGuardian Dashboard</title>
+    <style>
+        body { font-family: system-ui, sans-serif; margin: 0; background: #f4f6f8; color: #17202a; }
+        main { width: min(1100px, calc(100% - 32px)); margin: 40px auto; }
+        h1 { margin-bottom: 8px; }
+        p { color: #566573; }
+        table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 18px #00000012; }
+        th, td { padding: 14px; border-bottom: 1px solid #e5e8e8; text-align: left; vertical-align: top; }
+        th { background: #17202a; color: white; }
+        .empty { padding: 40px; text-align: center; background: white; }
+    </style>
+</head>
+<body>
+<main>
+    <h1>PipeGuardian</h1>
+    <p>위험도 순 배관 점검 우선순위</p>
+
+    <div class="empty" th:if="${#lists.isEmpty(alerts)}">
+        아직 점검 결과가 없습니다.
+    </div>
+
+    <table th:unless="${#lists.isEmpty(alerts)}">
+        <thead>
+        <tr>
+            <th>등급</th>
+            <th>배관</th>
+            <th>위치</th>
+            <th>위험도</th>
+            <th>최근 점검</th>
+            <th>리포트</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="alert : ${alerts}">
+            <td th:text="${alert.badge() + ' ' + alert.riskLevel()}">🟢 NORMAL</td>
+            <td th:text="${alert.pipeCode()}">A-203</td>
+            <td th:text="${alert.location()}">제2공정동 북측</td>
+            <td th:text="${#numbers.formatDecimal(alert.riskScore(), 1, 1)}">0.0</td>
+            <td th:text="${#temporals.format(alert.lastInspectedAt(), 'yyyy-MM-dd HH:mm')}">2026-07-28</td>
+            <td th:text="${alert.reportText()}">리포트</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>
