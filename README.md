@@ -135,7 +135,12 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 ### 5.2 Backend
 ```bash
 cd backend
-./gradlew bootRun
+
+# macOS / Linux
+bash ./gradlew bootRun
+
+# Windows
+gradlew.bat bootRun
 ```
 - 대시보드: http://localhost:8080/dashboard
 - H2 콘솔: http://localhost:8080/h2-console
@@ -147,7 +152,12 @@ cd backend
 ```bash
 # Backend
 cd backend
-./gradlew test
+
+# macOS / Linux
+bash ./gradlew test
+
+# Windows
+gradlew.bat test
 
 # AI Service
 cd ../ai-service
