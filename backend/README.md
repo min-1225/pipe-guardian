@@ -13,8 +13,13 @@ Java 17 / Spring Boot 3.2 기반 PipeGuardian 핵심 백엔드입니다.
 - Thymeleaf 대시보드
 
 ```bash
-./gradlew bootRun
-./gradlew test
+# macOS / Linux
+bash ./gradlew bootRun
+bash ./gradlew test
+
+# Windows
+gradlew.bat bootRun
+gradlew.bat test
 ```
 
 - API: `http://localhost:8080/api/v1`
