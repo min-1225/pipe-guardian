@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/pipeguardian
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  h2:
+    console:
+      enabled: true
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 40MB
+
+server:
+  error:
+    include-message: always
+
+pipeguardian:
+  ai:
+    base-url: ${PIPE_AI_BASE_URL:http://localhost:8000}
+    timeout-seconds: 60
+  storage:
+    root: ${PIPE_IMAGE_ROOT:./data/images}
+  risk:
+    gamma: 60.0
+    normalization-k: 25.0
+    warning-threshold: 40.0
+    critical-threshold: 70.0
+  matching:
+    iou-threshold: 0.3
+    alignment-score-threshold: 0.3
