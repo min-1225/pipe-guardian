@@ -1,0 +1,50 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Java / Spring
+.gradle/
+build/
+target/
+out/
+*.class
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node tooling if a separate frontend is added
+node_modules/
+dist/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Runtime data
+.verify/
+data/
+uploads/
+reports/
+logs/
+*.log
+
+# Models and datasets
+models/
+weights/
+datasets/
+*.pt
+*.pth
+*.onnx
+*.engine
