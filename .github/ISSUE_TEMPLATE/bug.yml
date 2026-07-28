@@ -1,0 +1,26 @@
+name: 버그
+description: 재현 가능한 문제를 보고합니다.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: symptom
+    attributes:
+      label: 현상
+      description: 실제로 발생한 결과를 작성해 주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 재현 방법
+      description: 입력 데이터와 실행 순서를 작성해 주세요.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대 결과
+    validations:
+      required: true
